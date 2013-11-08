@@ -64,6 +64,7 @@ llui pot(llui a, llui b, llui c){
    return resp;
 }
 
+// Rabin-Miller primality testing algorithm
 bool isPrime(llui n){
    llui d = n-1;
    llui s = 0;

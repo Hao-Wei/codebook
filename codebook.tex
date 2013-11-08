@@ -63,6 +63,12 @@ In any bipartite graph, the number of edges in a maximum matching equals the num
 \subsection{General Unweighted Maximum Matching (Edmonds' algorithm)}
 \lstinputlisting[language=c++]{general-matching.cpp}
 
+\subsection{Minimum Edge Cover (Text)}
+If a minimum edge cover contains $C$ edges, and a maximum matching contains $M$ edges, then $C + M = |V|$. To obtain the edge cover, start with a maximum matching, and then, for every vertex not matched, just select some edge incident upon it and add it to the edge set. 
+
+\subsection{Stable Marriage Problem (Gale--Shapley algorithm)}
+\lstinputlisting[language=c++]{stablemp.cpp}
+
 \section{Geometry}
 
 \subsection{Miscellaneous Geometry}
@@ -71,11 +77,23 @@ In any bipartite graph, the number of edges in a maximum matching equals the num
 \subsection{3D Geometry}
 \lstinputlisting[language=c++]{geom-3d.cpp}
 
+\subsection{Convex hull}
+\lstinputlisting[language=c++]{monotone.cpp}
+
+\subsection{Closest pair of points}
+\lstinputlisting[language=c++]{closest_pair.cpp}
+
+\subsection{Perimeter and area of union of disks}
+\lstinputlisting[language=c++]{discs.cpp}
+
 % TODO: Add faster one
 \subsection{Slow Delaunay triangulation}
 \lstinputlisting[language=c++]{delaunay.cpp}
 
 \section{Math Algorithms}
+
+\subsection{Sieve of Eratosthenes}
+\lstinputlisting[language=c++]{yarin.cpp}
 
 \subsection{Modular arithmetic and linear Diophantine solver}
 \lstinputlisting[language=c++]{modular.cpp}
@@ -101,7 +119,7 @@ After row reduction, if any row has a 1 in the rightmost column and 0 everywhere
 \subsection{Simplex algorithm}
 \lstinputlisting[language=c++]{simplex.cpp}
 
-\subsection{Fast factorization (Pollard rho)}
+\subsection{Fast factorization (Pollard rho) and primality testing (Rabin--Miller)}
 \lstinputlisting[language=c++]{pollard-rho.cpp}
 
 \subsection{Euler's Totient}
@@ -149,6 +167,9 @@ This function is called on the root of the tree. The set P of pairs of nodes to 
 
 \subsection{AVL Tree (Java)}
 \lstinputlisting[language=java]{avl.java}
+
+\subsection{Size-Balanced Tree}
+\lstinputlisting[language=c++]{SBT.cpp}
 
 \section{Miscellaneous}
 
@@ -221,6 +242,15 @@ yielding $X^{n^2}$ fixed colorings. Reflections over diagonals split cells into 
 (the diagonal itself) and $2n^2-n$ groups of 2 (all remaining cells), thus yielding 
 $X^{2n^2-n+2n}=X^{2n^2+n}$ unaffected colorings. 
 So, the answer is $(X^{4n^2}+3X^{2n^2}+2X^{n^2}+2X^{2n^2+n})/8$.
+
+\subsection{Date manipulation}
+\lstinputlisting[language=c++]{dates.cpp}
+
+\subsection{Convex hull trick}
+\lstinputlisting[language=c++]{chtrick.cpp}
+
+\subsection{Binary search}
+\lstinputlisting[language=c++]{bsearch.c}
 
 \end{multicols}
 \end{document}
