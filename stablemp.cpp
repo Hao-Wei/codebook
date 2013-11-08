@@ -1,6 +1,7 @@
 // Gale-Shapley algorithm for the stable marriage problem. Brian Bi
 // madj[i][j] is the jth highest ranked woman for man i.
 // fpref[i][j] is the rank woman i assigns to man j.
+// Returns a pair of vectors (mpart, fpart), where mpart[i] gives the partner of man i, and fpart is analogous
 pair<vector<int>, vector<int> > stable_marriage(vector<vector<int> >& madj, vector<vector<int> >& fpref) {
 	int n = madj.size();
 	vector<int> mpart(n, -1), fpart(n, -1);

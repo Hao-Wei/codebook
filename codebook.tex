@@ -90,6 +90,13 @@ If a minimum edge cover contains $C$ edges, and a maximum matching contains $M$ 
 \subsection{Slow Delaunay triangulation}
 \lstinputlisting[language=c++]{delaunay.cpp}
 
+\subsection{Minimum Enclosing Disk (Welzl's Algorithm)}
+\lstinputlisting[language=c++]{welzl.cpp}
+
+\subsection{Pick's Theorem (Text)}
+
+For a polygon with all vertices on lattice points, $A = i + b/2 - 1$, where $A$ is the area, $i$ is the number of lattice points strictly within the polygon, and $b$ is the number of lattice points on the boundary of the polygon. (Note, there is no generalization to higher dimensions)
+
 \section{Math Algorithms}
 
 \subsection{Sieve of Eratosthenes}
@@ -171,6 +178,38 @@ This function is called on the root of the tree. The set P of pairs of nodes to 
 \subsection{Size-Balanced Tree}
 \lstinputlisting[language=c++]{SBT.cpp}
 
+\section{Number Theory}
+\subsection{Polynomial Coefficients (Text)}
+$(x_1 + x_2 + ... + x_k)^n = \sum_{c_1 + c_2 + ... + c_k = n} \frac{n!}{c_1! c_2! ... c_k!} x_1^{c_1} x_2^{c_2} ... x_k^{c_k}$
+
+\subsection{M\"obius Function (Text)}
+$\mu(n) = \begin{cases}
+0 & \text{$n$ not squarefree} \\
+1 & \text{$n$ squarefree w/ even no. of prime factors} \\
+1 & \text{$n$ squarefree w/ odd no. of prime factors} \\
+\end{cases}$
+Note that $\mu(a) \mu(b) = \mu(ab)$ for $a, b$ relatively prime
+Also $\sum_{d \mid n} \mu(d) = \begin{cases} 1 & \text{if $n = 1$} \\ 0 & \text{otherwise} \end{cases}$
+
+\textbf{M\"obius Inversion}
+
+If $g(n) = \sum_{d|n} f(d)$ for all $n \ge 1$, then $f(n) = \sum_{d|n} \mu(d)g(n/d)$ for all $n \ge 1$.
+
+\subsection{Burnside's Lemma (Text)}
+The number of orbits of a set $X$ under the group action $G$ equals the average number of elements of $X$ fixed by the elements of $G$.
+
+Here's an example. Consider a square of $2n$ times $2n$ cells. How many ways are there to color it into $X$ colors, up to rotations and/or reflections?
+Here, the group has only 8 elements (rotations by 0, 90, 180 and 270 degrees, reflections over two 
+diagonals, over a vertical line and over a horizontal line). Every coloring stays itself after 
+rotating by 0 degrees, so that rotation has $X^{4n^2}$ fixed points. Rotation by 180 degrees and 
+reflections over a horizonal/vertical line split all cells in pairs that must be of the same color 
+for a coloring to be unaffected by such rotation/reflection, thus there exist $X^{2n^2}$ such 
+colorings for each of them. Rotations by 90 and 270 degrees split cells in groups of four, thus 
+yielding $X^{n^2}$ fixed colorings. Reflections over diagonals split cells into $2n$ groups of 1 
+(the diagonal itself) and $2n^2-n$ groups of 2 (all remaining cells), thus yielding 
+$X^{2n^2-n+2n}=X^{2n^2+n}$ unaffected colorings. 
+So, the answer is $(X^{4n^2}+3X^{2n^2}+2X^{n^2}+2X^{2n^2+n})/8$.
+
 \section{Miscellaneous}
 
 \subsection{Knuth--Morris--Pratt (KMP)}
@@ -204,45 +243,6 @@ for each token:
 // Finally, evaluate O as a postfix expression.
 \end{lstlisting}
 
-\subsection{Minimum Enclosing Disk (Welzl's Algorithm)}
-\lstinputlisting[language=c++]{welzl.cpp}
-
-\subsection{Pick's Theorem (Text)}
-
-For a polygon with all vertices on lattice points, $A = i + b/2 - 1$, where $A$ is the area, $i$ is the number of lattice points strictly within the polygon, and $b$ is the number of lattice points on the boundary of the polygon. (Note, there is no generalization to higher dimensions)
-
-\section{Number Theory}
-\subsection{Polynomial Coefficients (Text)}
-$(x_1 + x_2 + ... + x_k)^n = \sum_{c_1 + c_2 + ... + c_k = n} \frac{n!}{c_1! c_2! ... c_k!} x_1^{c_1} x_2^{c_2} ... x_k^{c_k}$
-
-\subsection{M\"obius Function (Text)}
-$\mu(n) = \begin{cases}
-0 & \text{$n$ not squarefree} \\
-1 & \text{$n$ squarefree w/ even no. of prime factors} \\
-1 & \text{$n$ squarefree w/ odd no. of prime factors} \\
-\end{cases}$
-Note that $\mu(a) \mu(b) = \mu(ab)$ for $a, b$ relatively prime
-Also $\sum_{d \mid n} \mu(d) = \begin{cases} 1 & \text{if $n = 1$} \\ 0 & \text{otherwise} \end{cases}$
-
-\textbf{M\"obius Inversion}
-
-If $g(n) = \sum_{d|n} f(d)$ for all $n \ge 1$, then $f(n) = \sum_{d|n} \mu(d)g(n/d)$ for all $n \ge 1$.
-
-\subsection{Burnside's Lemma (Text)}
-The number of orbits of a set $X$ under the group action $G$ equals the average number of elements of $X$ fixed by the elements of $G$.
-
-Here's an example. Consider a square of $2n$ times $2n$ cells. How many ways are there to color it into $X$ colors, up to rotations and/or reflections?
-Here, the group has only 8 elements (rotations by 0, 90, 180 and 270 degrees, reflections over two 
-diagonals, over a vertical line and over a horizontal line). Every coloring stays itself after 
-rotating by 0 degrees, so that rotation has $X^{4n^2}$ fixed points. Rotation by 180 degrees and 
-reflections over a horizonal/vertical line split all cells in pairs that must be of the same color 
-for a coloring to be unaffected by such rotation/reflection, thus there exist $X^{2n^2}$ such 
-colorings for each of them. Rotations by 90 and 270 degrees split cells in groups of four, thus 
-yielding $X^{n^2}$ fixed colorings. Reflections over diagonals split cells into $2n$ groups of 1 
-(the diagonal itself) and $2n^2-n$ groups of 2 (all remaining cells), thus yielding 
-$X^{2n^2-n+2n}=X^{2n^2+n}$ unaffected colorings. 
-So, the answer is $(X^{4n^2}+3X^{2n^2}+2X^{n^2}+2X^{2n^2+n})/8$.
-
 \subsection{Date manipulation}
 \lstinputlisting[language=c++]{dates.cpp}
 
@@ -251,6 +251,12 @@ So, the answer is $(X^{4n^2}+3X^{2n^2}+2X^{n^2}+2X^{2n^2+n})/8$.
 
 \subsection{Binary search}
 \lstinputlisting[language=c++]{bsearch.c}
+
+\subsection{Bignums (C++, slow)}
+\lstinputlisting[language=c++]{bignum.cpp}
+
+\subsection{All nearest smaller values}
+\lstinputlisting[language=c++]{ansv.cpp}
 
 \end{multicols}
 \end{document}
