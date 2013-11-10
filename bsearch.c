@@ -4,17 +4,17 @@ int lower_bound(int A[], int n, int c) {
     int l = 0;
     int r = n;
     while (l < r) {
-        int m = (l+r)/2;
+        int m = (r-l)/2+l; //prevents integer overflow
         if (A[m] < c) l = m+1; else r = m;
     }
     return l;
-}
+
  
 int upper_bound(int A[], int n, int c) {
     int l = 0;
     int r = n;
     while (l < r) {
-        int m = (l+r)/2;
+        int m = (r-l)/2+l;
         if (A[m] <= c) l = m+1; else r = m;
     }
     return l;
