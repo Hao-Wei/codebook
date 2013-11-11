@@ -1,5 +1,6 @@
 // Minimum enclosing circle, Welzl's algorithm (Brian Bi)
 // Expected linear time.
+// If there are any duplicate points in the input, be sure to remove them first.
 struct point {
 	double x;
 	double y;
