@@ -19,7 +19,7 @@ struct BIT {
 		return read(idx2) - read(idx1);
 	}
 	// indices are 1-based. adds val to f[idx]
-	int update(int idx, int val) {
+	void update(int idx, int val) {
 		while (idx <= n) {
 			bit[idx] += val;
 			idx += idx & -idx;
